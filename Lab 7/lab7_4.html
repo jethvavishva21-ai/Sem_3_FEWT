@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            background: #f4f4f9;
+            padding: 20px;
+        }
+
+        .form-box {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-box">
+        <h2>Register</h2>
+        <form id="regForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="uname"><span class="error" id="errUname"></span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="pwd"><span class="error" id="errPwd"></span>
+            </div>
+            <div class="form-group">
+                <label>Repeat Password</label>
+                <input type="password" id="rpwd"><span class="error" id="errRpwd"></span>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="date" id="dob"><span class="error" id="errDob"></span>
+            </div>
+            <div class="form-group">
+                <label>Enrollment (11 Digits)</label>
+                <input type="text" id="enroll"><span class="error" id="errEnroll"></span>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" id="email"><span class="error" id="errEmail"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('regForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.querySelectorAll('.error').forEach(el => el.innerText = '');
+            let isValid = true;
+
+            // 1. Username
+            if (document.getElementById('uname').value.length < 8) {
+                document.getElementById('errUname').innerText = 'Min 8 characters required.';
+                isValid = false;
+            }
+
+            // 2. Password (8-12 chars, 1 digit, 1 special)
+            let pwd = document.getElementById('pwd').value;
+            let pwdRegex = /^(?=.*\d)(?=.*[!@#$%^&*]).{8,12}$/;
+            if (!pwdRegex.test(pwd)) {
+                document.getElementById('errPwd').innerText = '8-12 chars, 1 digit, 1 special char required.';
+                isValid = false;
+            }
+
+            // 3. Repeat Password
+            let rpwd = document.getElementById('rpwd').value;
+            if (pwd !== rpwd || rpwd === '') {
+                document.getElementById('errRpwd').innerText = 'Passwords must match.';
+                isValid = false;
+            }
+
+            // 4. Age > 18
+            let dobVal = document.getElementById('dob').value;
+            if (!dobVal) {
+                document.getElementById('errDob').innerText = 'Please select DOB.';
+                isValid = false;
+            } else {
+                let birth = new Date(dobVal);
+                let today = new Date();
+                let age = today.getFullYear() - birth.getFullYear();
+                let m = today.getMonth() - birth.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) { age--; }
+                if (age <= 18) {
+                    document.getElementById('errDob').innerText = 'Age must be strictly greater than 18.';
+                    isValid = false;
+                }
+            }
+
+            // 5. Enrollment
+            if (!/^\d{11}$/.test(document.getElementById('enroll').value)) {
+                document.getElementById('errEnroll').innerText = 'Must be exactly 11 digits.';
+                isValid = false;
+            }
+
+            // 6. Email
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById('email').value)) {
+                document.getElementById('errEmail').innerText = 'Valid email required.';
+                isValid = false;
+            }
+
+            if (isValid) alert('Success! All validations passed.');
+        });
+    </script>
+</body>
+
+</html>

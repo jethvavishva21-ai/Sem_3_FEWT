@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Static Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eef2f5;
+        }
+
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .msg {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div id="message" class="msg"></div>
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="validateLogin()">Login</button>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let user = document.getElementById("user").value;
+            let pass = document.getElementById("pass").value;
+            let msgBox = document.getElementById("message");
+
+            if (user === "" || pass === "") {
+                msgBox.style.color = "red";
+                msgBox.innerText = "Please fill in all fields.";
+            } else if (user === "admin" && pass === "admin123") {
+                msgBox.style.color = "green";
+                msgBox.innerText = "Login Successful!";
+            } else {
+                msgBox.style.color = "red";
+                msgBox.innerText = "Invalid Username or Password.";
+            }
+        }
+    </script>
+</body>
+
+</html>

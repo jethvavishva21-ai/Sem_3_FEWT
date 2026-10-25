@@ -1,0 +1,109 @@
+<!-- 1. WAP to create a basic graphical Calculator using HTML and JavaScript. (A) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab7.1</title>
+    <style>
+        #clear {
+            width: 200px;
+            height: 50px;
+            margin-top: 10px;
+            padding: 2px;
+            background-color: red;
+            border-radius: 2px;
+        }
+
+        #oper {
+            width: 200px;
+            height: 50px;
+            margin-top: 10px;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        #num {
+            width: 200px;
+            height: 50px;
+            margin-top: 10px;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        #eql-btn {
+            width: 200px;
+            height: 50px;
+            margin-top: 10px;
+            padding: 2px;
+            background-color: green;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="click">
+        <div>
+            <input type="text" id="displayscreen"
+                style="width: 99%; height: 29px; border-radius: 2px; border-color: black;">
+        </div>
+
+        <div>
+            <button id="clear" onclick="clearScreen()">C</button>
+            <button id="oper" onclick="press('/')">/</button>
+            <button id="oper" onclick="press('*')">*</button>
+            <button id="oper" onclick="press('-')">-</button>
+        </div>
+
+        <div>
+            <button id="num" onclick="press('7')">7</button>
+            <button id="num" onclick="press('8')">8</button>
+            <button id="num" onclick="press('9')">9</button>
+            <button id="oper" onclick="press('+')">+</button>
+        </div>
+
+        <div>
+            <button id="num" onclick="press('4')">4</button>
+            <button id="num" onclick="press('5')">5</button>
+            <button id="num" onclick="press('6')">6</button>
+            <button id="eql-btn" onclick="eql()">=</button>
+        </div>
+
+        <div>
+            <button id="num" onclick="press('1')">1</button>
+            <button id="num" onclick="press('2')">2</button>
+            <button id="num" onclick="press('3')">3</button>
+            <button id="num" onclick="press('0')">0</button>
+        </div>
+    </div>
+
+    <script>
+
+        displayscreen = document.getElementById("displayscreen");
+
+        function press(value) {
+            displayscreen.value += value;
+        }
+
+        function clearScreen() {
+            displayscreen.value = " ";
+        }
+
+        function eql() {
+            try {
+                displayscreen.value = eval(displayscreen.value);
+            }
+
+
+            catch (error) {
+                displayscreen.value = error;
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
