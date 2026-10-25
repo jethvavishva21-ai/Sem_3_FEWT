@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+
+    <style>
+        body{
+            font-family:Arial;
+            margin: 40px;
+        }
+
+        input{
+            padding: 8px;
+            width: 220px;
+        }
+
+        button{
+            padding: 8px,15px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 400px;
+            margin-top: 20px;
+        }
+
+        table,th,td{
+            border: 1px solid black;
+        }
+
+        th,td{
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!--Perform CRUD operation on a static array with FirstName, LastName, Age, Semester, RollNumber,ImagePath etc.. Fields using jQuery-->
+
+    <input type="text" id="textName" placeholder="Enter Name">
+    <button id="btn">Add</button>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+
+        <tbody id="tableData"></tbody>
+
+    </table>
+    
+    <script>
+
+        let arr = [];
+        let editIndex = -1;
+
+        $("#btn").click(()=>{
+
+            let name = $("#textName").val();
+
+            if(name == "")
+            {
+                alert("Enter Name");
+                return;
+            }
+
+            if(editIndex == -1)
+            {
+                arr.push(name);
+            }
+
+            else
+            {
+                arr[editIndex] = name;
+                editIndex = -1;
+                $("#btn").text("Add");
+            }
+
+            $("#textName").val("");
+
+            showData();
+        });
+
+        function showData()
+        {
+            let output = "";
+
+            $.each(arr,function(index,value)
+            {
+                output += `
+                  <tr>
+                    <td>${index+1}</td>
+                    <td>${value}</td>
+                    <td>
+                        <button onclick="editData(${index})">Edit</button>
+                        <button onclick="deleteData(${index})">Delete</button>
+                    </td>
+                  </tr>
+                `;
+            });
+
+            $("#tableData").html(output);
+        }
+
+        function editData(index)
+        {
+            editIndex = index;
+
+            $("#textName").val(arr[index]);
+
+            $("#btn").text("Update");
+        }
+
+        function deleteData(index)
+        {
+            arr.splice(index,1);
+            showData();
+        }
+
+    </script>
+</body>
+</html>
