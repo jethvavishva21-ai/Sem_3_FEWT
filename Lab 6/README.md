@@ -7,3 +7,6 @@
    - Wrote a JavaScript program to display student records stored in an array.
 4. **`lab6_4.html`** - Product Catalog:
    - Wrote a JavaScript program to display products stored in an array dynamically.
+
+## 🚀 How to Run
+You can run these programs by opening any `.html` file directly in your web browser or by using the **Live Server** extension in VS Code.
