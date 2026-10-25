@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        n =parseInt(prompt("Enter number"));
+        let temp;
+
+        a = [];
+
+        for(i = 0; i < n; i++)
+        {
+            a[i] = parseInt(prompt("Enter Elements : "));
+        }
+
+        for (i = 0; i < n; i++) 
+        {
+            document.write(a[i] + "<br/>");
+        }
+
+        for(i = 0; i < n; i++)
+        {
+            for(j = i + 1; j < n; j++)
+            {
+                if(a[i] > a[j])
+                {
+                    temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+
+        document.write("<br/>");
+        document.write("Asccending order" + "<br/>");
+        
+        for(i = 0; i < a.length; i++)
+        {
+            document.write(a[i] + "<br/>");
+        }
+    </script>
+</body>
+</html>
