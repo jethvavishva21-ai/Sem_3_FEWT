@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="
+        https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js">
+        </script>
+
+<body>
+    <!--6. write a jQuery program to append new row to existing table when clicked on button. (A)-->
+
+    <table id="table" border="2px">
+        <tr>
+            <td>Name : </td>
+            <td>Age</td>
+        </tr>
+
+        <tr>
+            <td>Rohit Sharma</td>
+            <td>38</td>
+        </tr>
+    </table>
+
+    <button id="btn">Click</button>
+
+    <script>
+        $("#btn").click(()=>{
+            $("#table").append("<tr><td>Hardik Pandya</td><td>33</td></tr>");
+        })
+    </script>
+</body>
+
+</html>

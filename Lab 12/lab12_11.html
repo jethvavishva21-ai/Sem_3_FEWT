@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--11. write a jQuery program to toggle hide/show element with id "myEle" when clicked on a button (A)-->
+
+    <h2 id="myEle">Toggle Hide/Show Text</h2>
+    <button id="btn">Toggle</button>
+
+    <script>
+        $("#btn").click(() => {
+            $("#myEle").toggle();
+        });
+    </script>
+</body>
+
+</html>

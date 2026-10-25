@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--18. write a jQuery program to validate complete student registration form. (C)-->
+
+    <h2>Student Registration Form</h2>
+    <form id="regForm">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        Mobile: <input type="text" id="mobile"><br><br>
+        Password: <input type="password" id="pass"><br><br>
+        <button type="submit">Register</button>
+    </form>
+    <p id="errorMsg" style="color: red;"></p>
+
+    <script>
+        $("#regForm").submit((event) => {
+            event.preventDefault(); // ફોર્મ રીલોડ થતું અટકાવવા
+
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var mobile = $("#mobile").val();
+            var pass = $("#pass").val();
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var mobilePattern = /^[0-9]{10}$/;
+
+            if (name == "") {
+                $("#errorMsg").text("Please enter your name");
+            } else if (!emailPattern.test(email)) {
+                $("#errorMsg").text("Please enter a valid email");
+            } else if (!mobilePattern.test(mobile)) {
+                $("#errorMsg").text("Please enter a valid 10-digit mobile number");
+            } else if (pass.length < 6) {
+                $("#errorMsg").text("Password must be at least 6 characters long");
+            } else {
+                $("#errorMsg").text("Registration Successful!").css("color", "green");
+            }
+        });
+    </script>
+</body>
+
+</html>

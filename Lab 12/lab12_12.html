@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--12. write a jQuery program to change background color of all input tags when clicked on a button (A)-->
+
+    <input type="text" placeholder="First Name"><br><br>
+    <input type="text" placeholder="Last Name"><br><br>
+    <button id="btn">Change Input Color</button>
+
+    <script>
+        $("#btn").click(() => {
+            $("input").css("background-color", "yellow");
+        });
+    </script>
+</body>
+
+</html>

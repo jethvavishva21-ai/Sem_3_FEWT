@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--13. write a jQuery program to hide an element which was clicked (B)-->
+
+    <p>Click on me to hide me (Paragraph 1)</p>
+    <p>Click on me to hide me (Paragraph 2)</p>
+    <h2>Click on me to hide me (Heading)</h2>
+
+    <script>
+        $("p, h2").click(function () {
+            $(this).hide();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--4. write a jQuery program to get content of textbox and set to paragraph with "data" class. (B)-->
+
+    <input type="text" id="myInput" placeholder="Enter text here">
+    <button id="btn">Set Text</button>
+    <p class="data">Paragraph text will change here...</p>
+
+    <script>
+        $("#btn").click(() => {
+            var val = $("#myInput").val();
+            $(".data").text(val);
+        });
+    </script>
+</body>
+
+</html>

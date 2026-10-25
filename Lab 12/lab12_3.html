@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <script src="
+        https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js">
+    </script>
+<body>
+    <!--3. write a jQuery program to set content of h1 to "Hello World" when use click on button. (A)-->
+
+    <h1 id="text">H1 tag</h1>
+    <button id="btn">click</button>
+
+    <script>
+        $("#btn").click(()=>{
+            $("#text").html("Hello World");
+        })
+    </script>
+
+
+</body>
+</html>
