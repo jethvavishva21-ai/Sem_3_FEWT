@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        word = prompt("Enter Word");
+
+        first = word.indexOf("a");
+        last = word.lastIndexOf("a");
+        ans = word.substring(first + 1, last);
+
+        document.write("First Index " + (first+1) + "<br/>");
+        document.write("Last Index " + (last+1)  + "<br/>");
+        document.write("Substring " + ans + "<br/>");
+    </script>
+</body>
+</html>

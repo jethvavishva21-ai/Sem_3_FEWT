@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        n1 = parseInt(prompt("Enter number : "));
+        n2 = parseInt(prompt("Enter number : "));
+
+        small = (n1 < n2) ? n1 : n2;
+
+        for(i = small; i >= 1; i--)
+        {
+            if(n1 % i == 0 && n2 % i == 0)
+            {
+                document.write("GCD of " + n1 + " & " + n2 + " is " + i + "<br/>");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

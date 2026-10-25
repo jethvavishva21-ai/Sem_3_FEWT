@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let n = parseInt(prompt("Enter number of rows: "));
+
+        for (let i = 1; i <= n; i++) {
+            for (let k = 1; k <= n - i; k++) {
+                document.write("&nbsp;&nbsp;");
+            }
+            for (let j = 1; j <= i; j++) {
+                document.write("* &nbsp;");
+            }
+            document.write("<br/>");
+        } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <script>
+            n1 = parseInt(prompt("Enter Starting Number "));
+            n2 = parseInt(prompt("Enter Ending Number "));
+
+            for (i = n1; i <= n2; i++) 
+            {
+                if (i <= 1) 
+                {
+                    continue;
+                }
+
+                isprime = true;
+
+                for (j = 2; j <= i / 2; j++) 
+                {
+                    if (i % j == 0) 
+                    {
+                        isprime = false;
+                        break;
+                    }
+                }
+
+                if (isprime) 
+                {
+                    document.write(i + "<br/>");
+                }
+            }
+        </script>
+</body>
+</html>

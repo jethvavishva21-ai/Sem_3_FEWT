@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Write a JavaScript to take 2-digit number and then separate these 2 digits, then multiply ƒrst digit
+    by itself for second digit times -->
+    <script>
+        n = parseInt(prompt("Enter 2 - digit Number : "));
+
+        first = Math.floor(n / 10);
+        second = n % 10;
+        result = 1;
+
+        for (i = 1; i <= second; i++) {
+            result = result * first;
+        }
+
+        document.write("First Digit = " + first + "<br/>");
+        document.write("Second Digit = " + second + "<br/>");
+        document.write(first + "^" + second + " = " + result);
+    </script>
+</body>
+
+</html>
