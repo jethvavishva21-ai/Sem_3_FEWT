@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        .container {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            width: 400px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            text-align: center;
+            color: #38bdf8;
+            margin-top: 0;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background: #0f172a;
+            color: white;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+
+        .add-btn {
+            background: #10b981;
+        }
+
+        .edit-btn {
+            background: #f59e0b;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .del-btn {
+            background: #ef4444;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background: #334155;
+            margin-bottom: 8px;
+            padding: 10px 12px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Array CRUD Operations</h2>
+
+        <div class="input-group">
+            <input type="text" id="itemInput" placeholder="Enter item name...">
+            <button class="add-btn" id="submitBtn" onclick="saveItem()">Add</button>
+        </div>
+
+        <ul id="itemList"></ul>
+    </div>
+
+    <script>
+        let items = ["Apple", "Banana", "Mango"]; // Initial Array
+        let editIndex = -1; // -1 means we are adding new item, not editing
+
+        // READ: Display Array elements
+        function renderList() {
+            const list = document.getElementById("itemList");
+            list.innerHTML = "";
+
+            items.forEach((item, index) => {
+                list.innerHTML += `
+                    <li>
+                        <span>${index + 1}. ${item}</span>
+                        <div>
+                            <button class="edit-btn" onclick="editItem(${index})">Edit</button>
+                            <button class="del-btn" onclick="deleteItem(${index})">Delete</button>
+                        </div>
+                    </li>
+                `;
+            });
+        }
+
+        // CREATE & UPDATE: Add new item or Update existing item
+        function saveItem() {
+            const input = document.getElementById("itemInput");
+            const submitBtn = document.getElementById("submitBtn");
+            const value = input.value.trim();
+
+            if (value === "") {
+                alert("Please enter a value!");
+                return;
+            }
+
+            if (editIndex === -1) {
+                // CREATE
+                items.push(value);
+            } else {
+                // UPDATE
+                items[editIndex] = value;
+                editIndex = -1;
+                submitBtn.innerHTML = "Add";
+                submitBtn.style.background = "#10b981";
+            }
+
+            input.value = "";
+            renderList();
+        }
+
+        // Select item for UPDATE
+        function editItem(index) {
+            document.getElementById("itemInput").value = items[index];
+            editIndex = index;
+            const submitBtn = document.getElementById("submitBtn");
+            submitBtn.innerHTML = "Update";
+            submitBtn.style.background = "#f59e0b";
+        }
+
+        // DELETE: Remove item from Array
+        function deleteItem(index) {
+            items.splice(index, 1);
+            renderList();
+        }
+
+        // Initial call to display list
+        renderList();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Event Recognizer</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 380px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #3b82f6;
+            background: #0f172a;
+            color: white;
+            outline: none;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+
+        .status {
+            background: #334155;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 6px solid #64748b;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #text {
+            font-weight: bold;
+            font-size: 22px;
+            display: block;
+            margin-top: 5px;
+            color: #38bdf8;
+        }
+
+        #keyInfo {
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Keyboard Event Detector</h2>
+        <input type="text" id="keyInput" placeholder="અહીં કોઈપણ Key દબાવો..." autocomplete="off">
+
+        <div class="status" id="statusBox">
+            <small>Fired Event:</small>
+            <span id="text">Waiting...</span>
+            <div id="keyInfo">Pressed Key: None</div>
+        </div>
+    </div>
+
+    <script>
+        const input = document.getElementById("keyInput");
+        const text = document.getElementById("text");
+        const keyInfo = document.getElementById("keyInfo");
+        const statusBox = document.getElementById("statusBox");
+
+        function updateUI(eventName, keyName, color) {
+            text.innerHTML = eventName;
+            text.style.color = color;
+            input.style.borderColor = color;
+            statusBox.style.borderLeftColor = color;
+            keyInfo.innerHTML = `Pressed Key: <b>${keyName}</b>`;
+        }
+
+        // 1. Key Down (જ્યારે કી દબાવવામાં આવે)
+        input.addEventListener('keydown', (e) => {
+            updateUI("Key Down", e.key, "#f59e0b"); // Orange
+        });
+
+        // 2. Key Press (જ્યારે કેરેક્ટર કી દબાયેલી રહે)
+        input.addEventListener('keypress', (e) => {
+            updateUI("Key Press", e.key, "#8b5cf6"); // Purple
+        });
+
+        // 3. Key Up (જ્યારે કી છોડવામાં આવે)
+        input.addEventListener('keyup', (e) => {
+            updateUI("Key Up", e.key, "#10b981"); // Green
+        });
+    </script>
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Keyboard Events</title>
+</head>
+<body>
+    <input type="text" id="keyEvent" placeholder="Type here..." oninput="keyEvent()"><br/><br/>
+    <span id="text"></span>
+
+    <script>
+        function keyEvent() {
+            let el = document.getElementById("keyEvent");
+
+            el.addEventListener('keydown', () => {
+                document.getElementById("text").innerHTML = "Key Down";
+            });
+
+            el.addEventListener('keypress', () => {
+                document.getElementById("text").innerHTML = "Key Press";
+            });
+
+            el.addEventListener('keyup', () => {
+                document.getElementById("text").innerHTML = "Key Up";
+            });
+        }
+        keyEvent(); // લિસનર્સ એક્ટિવ કરવા માટે
+    </script>
+</body>
+</html>-->

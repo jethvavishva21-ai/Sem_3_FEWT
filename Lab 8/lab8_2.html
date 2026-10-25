@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event Recognizer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #334155;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #38bdf8;
+        }
+
+        /* Interactive Button/Zone */
+        #mouseEvent {
+            width: 100%;
+            height: 120px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background: #3b82f6;
+            border: 3px dashed #93c5fd;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+            user-select: none;
+        }
+
+        #mouseEvent:hover {
+            transform: scale(1.02);
+        }
+
+        /* Current Event Status Badge */
+        .status-box {
+            background: #1e293b;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 6px solid #64748b;
+            transition: 0.3s;
+        }
+
+        #text {
+            font-size: 22px;
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+            color: #f8fafc;
+        }
+
+        /* Event Log History */
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+
+        .clear-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        #eventLog {
+            background: #0f172a;
+            height: 150px;
+            overflow-y: auto;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 14px;
+            border: 1px solid #475569;
+        }
+
+        .log-item {
+            padding: 4px 8px;
+            margin-bottom: 4px;
+            border-radius: 4px;
+            background: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            animation: fadeIn 0.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Mouse Event Detector</h2>
+
+        <!-- Interactive Button -->
+        <button id="mouseEvent">
+            Click, Double Click, Right Click <br> or Hover Here!
+        </button>
+
+        <!-- Current Fired Event Display -->
+        <div class="status-box" id="statusBox">
+            <small>Last Fired Event:</small>
+            <span id="text">Waiting for action...</span>
+        </div>
+
+        <!-- Event History Log -->
+        <div class="log-header">
+            <span>Event History (Sequence):</span>
+            <button class="clear-btn" onclick="clearLog()">Clear</button>
+        </div>
+        <div id="eventLog"></div>
+    </div>
+
+    <script>
+        const btn = document.getElementById("mouseEvent");
+        const textSpan = document.getElementById("text");
+        const statusBox = document.getElementById("statusBox");
+        const eventLog = document.getElementById("eventLog");
+
+        // Function to update UI and add log when an event fires
+        function triggerEvent(eventName, color) {
+            // Update main text and border color
+            textSpan.innerHTML = eventName;
+            textSpan.style.color = color;
+            statusBox.style.borderLeftColor = color;
+            btn.style.backgroundColor = color;
+
+            // Add entry to the history log with time
+            const time = new Date().toLocaleTimeString();
+            const logItem = document.createElement("div");
+            logItem.className = "log-item";
+            logItem.style.borderLeft = `4px solid ${color}`;
+            logItem.innerHTML = `<span>${eventName}</span> <small style="color:#94a3b8">${time}</small>`;
+
+            eventLog.prepend(logItem); // Adds newest event at the top
+        }
+
+        // 1. Single Click
+        btn.addEventListener('click', () => {
+            triggerEvent("Click (Single)", "#10b981"); // Green
+        });
+
+        // 2. Double Click (Fixed typo from 'dbclick' to 'dblclick')
+        btn.addEventListener('dblclick', () => {
+            triggerEvent("Double Click", "#8b5cf6"); // Purple
+        });
+
+        // 3. Mouse Down (When button is pressed)
+        btn.addEventListener('mousedown', () => {
+            triggerEvent("Mouse Down", "#f59e0b"); // Orange
+        });
+
+        // 4. Mouse Up (When button is released)
+        btn.addEventListener('mouseup', () => {
+            triggerEvent("Mouse Up", "#3b82f6"); // Blue
+        });
+
+        // 5. Mouse Enter (Hover in)
+        btn.addEventListener('mouseenter', () => {
+            triggerEvent("Mouse Enter (Hover)", "#06b6d4"); // Cyan
+        });
+
+        // 6. Mouse Leave (Hover out)
+        btn.addEventListener('mouseleave', () => {
+            triggerEvent("Mouse Leave", "#64748b"); // Gray
+        });
+
+        // 7. Right Click (Context Menu)
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault(); // Prevents default browser right-click menu
+            triggerEvent("Right Click", "#ec4899"); // Pink
+        });
+
+        // Clear Log Function
+        function clearLog() {
+            eventLog.innerHTML = "";
+            textSpan.innerHTML = "Waiting for action...";
+            textSpan.style.color = "#f8fafc";
+            statusBox.style.borderLeftColor = "#64748b";
+            btn.style.backgroundColor = "#3b82f6";
+        }
+    </script>
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mouseEvent" onclick="mouseEvent()">Click</button><br/>
+    <span id="text"></span>
+
+    <script>
+        function mouseEvent()
+        {
+            document.getElementById("mouseEvent").addEventListener('click',()=>
+            {
+                document.getElementById("text").innerHTML = "Onclick"
+            });
+
+            document.getElementById("mouseEvent").addEventListener('dblclick', () => 
+            {
+                document.getElementById("text").innerHTML = "Double click"
+            });
+
+            document.getElementById("mouseEvent").addEventListener('mouseup', () => 
+            {
+                document.getElementById("text").innerHTML = "Mouse Up"
+            });
+
+            document.getElementById("mouseEvent").addEventListener('mousedown', () => 
+            {
+                document.getElementById("text").innerHTML = "Mouse Down"
+            });
+        }
+    </script>
+</body>
+</html>-->

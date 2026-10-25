@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f1f5f9;
+        transition: background-color 0.4s ease;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        width: 380px;
+    }
+
+    h1 {
+        color: black;
+        background: #cbd5e1;
+        padding: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-top: 0;
+    }
+
+    .btn-group {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+        transition: transform 0.1s;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    #findtime {
+        background: #2563eb;
+    }
+
+    #red {
+        background: #dc2626;
+    }
+
+    #green {
+        background: #16a34a;
+    }
+
+    #timeDisplay {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #1e293b;
+        background: #e2e8f0;
+        padding: 10px;
+        border-radius: 6px;
+        min-height: 22px;
+    }
+</style>
+</head>
+
+<body>
+
+    <div class="card">
+        <!-- Condition 1: Heading Hover -->
+        <h1 id="heading">Hover Mouse Here!</h1>
+
+        <!-- Condition 2 & 3: Buttons -->
+        <div class="btn-group">
+            <button id="findtime">findtime</button>
+            <button id="red">red</button>
+            <button id="green">green</button>
+        </div>
+
+        <div id="timeDisplay">Click 'findtime' to see Date & Time</div>
+    </div>
+
+    <script>
+        const heading = document.getElementById("heading");
+        const timeDisplay = document.getElementById("timeDisplay");
+
+        // 1. Mouse Over -> Yellow, Mouse Out -> Black
+        heading.addEventListener("mouseover", () => {
+            heading.style.color = "yellow";
+            heading.style.backgroundColor = "#334155"; // પીળો રંગ ચોખ્ખો દેખાય તે માટે
+        });
+
+        heading.addEventListener("mouseout", () => {
+            heading.style.color = "black";
+            heading.style.backgroundColor = "#cbd5e1";
+        });
+
+        // 2. findtime button clicked -> Show Date & Time
+        document.getElementById("findtime").addEventListener("click", () => {
+            timeDisplay.innerHTML = new Date().toLocaleString();
+        });
+
+        // 3. Red & Green Background change
+        document.getElementById("red").addEventListener("click", () => {
+            document.body.style.backgroundColor = "red";
+        });
+
+        document.getElementById("green").addEventListener("click", () => {
+            document.body.style.backgroundColor = "green";
+        });
+    </script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+</head>
+<body>
+    <h1 id="head" onmouseover="turnYellow()" onmouseout="turnBlack()">Hover Over This Heading</h1>
+    
+    <button onclick="showTime()">findtime</button>
+    <button onclick="changeBg('red')">red</button>
+    <button onclick="changeBg('green')">green</button>
+    
+    <p id="timeText"></p>
+
+    <script>
+        function turnYellow() {
+            document.getElementById("head").style.color = "yellow";
+        }
+        function turnBlack() {
+            document.getElementById("head").style.color = "black";
+        }
+        function showTime() {
+            document.getElementById("timeText").innerHTML = Date();
+        }
+        function changeBg(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>-->

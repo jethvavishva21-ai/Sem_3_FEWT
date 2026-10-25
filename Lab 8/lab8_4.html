@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Event Recognizer</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background: #1e293b;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 380px;
+            text-align: center;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 2px solid #475569;
+            background: #0f172a;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+        }
+
+        .submit-btn {
+            background: #10b981;
+        }
+
+        .reset-btn {
+            background: #ef4444;
+        }
+
+        .status-box {
+            margin-top: 20px;
+            background: #334155;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 6px solid #38bdf8;
+        }
+
+        #text {
+            font-size: 22px;
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Form Event Detector</h2>
+
+        <form id="myForm">
+            <input type="text" id="nameInput" placeholder="નામ લખો (Focus / Blur / Input)">
+
+            <select id="courseSelect">
+                <option value="">કોર્સ પસંદ કરો (Change Event)</option>
+                <option value="BCA">BCA</option>
+                <option value="BSc IT">BSc IT</option>
+                <option value="MCA">MCA</option>
+            </select>
+
+            <div class="btn-group">
+                <button type="submit" class="submit-btn">Submit</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+
+        <div class="status-box" id="statusBox">
+            <small>Fired Form Event:</small>
+            <span id="text">Waiting...</span>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const nameInput = document.getElementById("nameInput");
+        const courseSelect = document.getElementById("courseSelect");
+        const text = document.getElementById("text");
+        const statusBox = document.getElementById("statusBox");
+
+        function showEvent(eventName, color) {
+            text.innerHTML = eventName;
+            text.style.color = color;
+            statusBox.style.borderLeftColor = color;
+        }
+
+        // 1. Focus Event 
+        nameInput.addEventListener('focus', () => {
+            showEvent("On Focus", "#38bdf8"); 
+        });
+
+        // 2. Blur Event 
+        nameInput.addEventListener('blur', () => {
+            showEvent("On Blur (Lost Focus)", "#94a3b8"); 
+        });
+
+        // 3. Input Event 
+        nameInput.addEventListener('input', () => {
+            showEvent("On Input (Typing...)", "#f59e0b"); 
+        });
+
+        // 4. Change Event
+        courseSelect.addEventListener('change', () => {
+            showEvent("On Change", "#8b5cf6"); 
+        });
+
+        // 5. Submit Event 
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            showEvent("Form Submitted!", "#10b981"); 
+        });
+
+        // 6. Reset Event 
+        form.addEventListener('reset', () => {
+            showEvent("Form Reset!", "#ef4444"); 
+        });
+    </script>
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Events</title>
+</head>
+<body>
+    <form id="formEvent">
+        <input type="text" id="inputBox" placeholder="Click or type here"><br/><br/>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <br/>
+    <span id="text"></span>
+
+    <script>
+        let form = document.getElementById("formEvent");
+        let input = document.getElementById("inputBox");
+
+        input.addEventListener('focus', () => {
+            document.getElementById("text").innerHTML = "Focus Event";
+        });
+
+        input.addEventListener('blur', () => {
+            document.getElementById("text").innerHTML = "Blur Event";
+        });
+
+        input.addEventListener('change', () => {
+            document.getElementById("text").innerHTML = "Change Event";
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById("text").innerHTML = "Submit Event";
+        });
+
+        form.addEventListener('reset', () => {
+            document.getElementById("text").innerHTML = "Reset Event";
+        });
+    </script>
+</body>
+</html>-->

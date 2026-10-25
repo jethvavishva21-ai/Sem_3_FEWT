@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="ValidateForm(event)">
+        <table>
+
+            <th>Student Registration</th>
+
+            <tr>
+                <td>Name : </td>
+                <td><input type="text" id="name"></td>
+            </tr>
+
+            <tr>
+                <td>Enrollment Number: </td>
+                <td><input type="number" id="roll"></td>
+            </tr>
+
+            <tr>
+                <td>Address : </td>
+                <td><textarea id="address">Enter Address...</textarea></td>
+            </tr>
+
+            <tr>
+                <td>Birth Day Date: </td>
+                <td><input type="date" id="date"></td>
+            </tr>
+
+            <tr>
+                <td>Email id : </td>
+                <td><input type="email" id="email"></td>
+            </tr>
+        </table>
+        <button type="button">Submit</button>
+    </form>
+
+    <script>
+        function ValidateForm(e)
+        {
+            name = document.getElementById("name");
+            enrollmentno = document.getElementById("roll");
+            address = document.getElementById("address");
+            birthday = document.getElementById("date");
+            email = document.getElementById("email");
+        }
+    </script>
+</body>
+</html>
