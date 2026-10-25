@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //object
+        stu1012026CSE = {
+                stuName: "Vishva",
+                roll: 456,
+                department: "CSE",
+                semester: 3,
+                city: "rajkot",
+                state: "gujarat",
+                country: "INDIA",
+            };
+
+            const { stuName, roll, country, city, ...otherPro } = stu1012026CSE;
+
+            console.log("Rest = ", otherPro);
+            document.write("Name = " + stuName + "<br/>");
+            document.write("Roll = " + roll + "<br/>");
+            document.write("city = " + city + "<br/>");
+            document.write("country = " + country + "<br/>");
+            document.write("Name = " + stuName + "<br/>");0
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student{
+
+            constructor (givenName,givenAge)
+            {
+                this.name = givenName;
+                this.age = givenAge;
+            }
+
+            introduce()
+            {
+                document.write("Hello, my name is " + this.name + "and I am" + this.age);
+            }
+        }
+
+        const Student1 = new Student("vishva",18);
+
+        Student1.introduce();
+    </script>
+</body>
+</html>
