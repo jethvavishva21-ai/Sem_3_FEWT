@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>
+        <p id="message">Click Here</p>
+    </h2>
+
+    <script>
+        document.addEventListener("mousedown",function(event){
+            if(event.button == 0)
+            {
+                document.getElementById("message").innerHTML = "Left click"
+            }
+
+            if(event.button == 2)
+            {
+                 document.getElementById("message").innerHTML = "Right click"
+            }
+        });
+
+        document.addEventListener("contextmenu",function(event){
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

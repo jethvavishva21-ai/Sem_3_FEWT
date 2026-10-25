@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>Select Roll Numbers:</h3>
+    
+    <!-- List of Checkboxes calling updateList() on click -->
+    <input type="checkbox" name="rollno" value="101" onclick="updateList()"> 101 <br>
+    <input type="checkbox" name="rollno" value="102" onclick="updateList()"> 102 <br>
+    <input type="checkbox" name="rollno" value="103" onclick="updateList()"> 103 <br>
+    <input type="checkbox" name="rollno" value="104" onclick="updateList()"> 104 <br>
+    <input type="checkbox" name="rollno" value="105" onclick="updateList()"> 105 <br>
+
+    <p><b>Selected Roll Numbers:</b> <span id="result">None</span></p>
+
+    <script>
+        function updateList() {
+            // Get all checkboxes with the name "rollno"
+            var checkboxes = document.getElementsByName("rollno");
+            var selected = [];
+
+            // Loop through checkboxes to find which ones are checked
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selected.push(checkboxes[i].value);
+                }
+            }
+
+            // Display the array elements joined by a comma, or "None" if empty
+            if (selected.length > 0) {
+                document.getElementById("result").innerHTML = selected.join(", ");
+            } else {
+                document.getElementById("result").innerHTML = "None";
+            }
+        }
+    </script>
+</body>
+</html>
