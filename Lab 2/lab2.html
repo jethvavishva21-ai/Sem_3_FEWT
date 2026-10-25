@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Private University in Rajkot | Darshan University</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Swiper CSS for Sliders -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      --du-primary: #121c2d;
+      --du-red: #d61b3c;
+      --du-light: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+
+    /* Navbar & Dropdown */
+    .navbar {
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 15px;
+      color: #000 !important;
+      padding: 10px 15px !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover,
+    .dropdown:hover .nav-link {
+      color: var(--du-red) !important;
+    }
+
+    .dropdown-menu {
+      border: none;
+      border-top: 3px solid var(--du-red);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--du-red);
+      color: white;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0;
+    }
+
+    /* Auto open dropdown on hover */
+
+    /* Hero Image Grid (From Image 1) */
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .hero-box {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .hero-box-text {
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: white;
+      padding: 20px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .hero-overlay:hover {
+      background: linear-gradient(to top, var(--du-red), transparent);
+      cursor: pointer;
+    }
+
+    /* Titles */
+    .section-title {
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+    }
+
+    .section-title i {
+      color: var(--du-red);
+      margin-right: 10px;
+    }
+
+    /* View More Button Hover Effect */
+    .btn-view-more {
+      color: var(--du-red);
+      border: 1px solid var(--du-red);
+      background: transparent;
+      border-radius: 50px;
+      padding: 8px 30px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+    }
+
+    .btn-view-more:hover {
+      background: var(--du-red);
+      color: white;
+      box-shadow: 0 5px 15px rgba(214, 27, 60, 0.4);
+      transform: translateY(-3px);
+    }
+
+    /* Why Darshan List */
+    .why-num {
+      background-color: var(--du-red);
+      color: white;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    /* Program Icons */
+    .prog-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 24px;
+      color: white;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    /* Placement Highlights Box */
+    .placement-overview {
+      background: var(--du-light);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .placement-header {
+      background: var(--du-red);
+      color: white;
+      border-radius: 10px 10px 0 0;
+      padding: 15px;
+      text-align: center;
+      margin: -20px -20px 20px -20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    /* Student Cards */
+    .student-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      background: white;
+      transition: transform 0.3s;
+      height: 100%;
+    }
+
+    .student-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .student-card img.student-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .ctc-badge {
+      background: #ffe5e5;
+      color: var(--du-red);
+      font-weight: bold;
+      padding: 5px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    .company-logo {
+      height: 40px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    /* Event Cards */
+    .event-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+      background: white;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .event-card img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    /* Stats Gradient */
+    .stats-bg {
+      background: linear-gradient(135deg, #1b0c36 0%, #a0102e 100%);
+      color: white;
+      padding: 40px 0;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 5px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .wa-tooltip {
+      position: fixed;
+      bottom: 30px;
+      right: 90px;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 100;
+    }
+
+    .wa-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      margin-top: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent transparent white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white sticky-top">
+    <div class="container">
+      <!-- Used exact logo link provided -->
+      <a class="navbar-brand" href="#">
+        <img src="https://darshan.ac.in/Content/media/DU_Logo.svg" alt="Darshan University" height="55">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-home fs-5"></i></a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">About <i class="fas fa-chevron-down fs-6 ms-1"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">About University</a></li>
+              <li><a class="dropdown-item" href="#">Leadership</a></li>
+              <li><a class="dropdown-item" href="#">Recognition By UGC</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">Admissions <i class="fas fa-chevron-down fs-6 ms-1"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Apply Now</a></li>
+              <li><a class="dropdown-item" href="#">Programs Offered</a></li>
+              <li><a class="dropdown-item" href="#">Scholarships</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">Programs <i class="fas fa-chevron-down fs-6 ms-1"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Undergraduate (B.Tech)</a></li>
+              <li><a class="dropdown-item" href="#">Postgraduate (M.Tech)</a></li>
+              <li><a class="dropdown-item" href="#">Diploma</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">Campus <i class="fas fa-chevron-down fs-6 ms-1"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Hostel</a></li>
+              <li><a class="dropdown-item" href="#">Transportation</a></li>
+              <li><a class="dropdown-item" href="#">Sports</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#">Placements <i class="fas fa-chevron-down fs-6 ms-1"></i></a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Placement Overview</a></li>
+              <li><a class="dropdown-item" href="#">Leading Recruiters</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Collage (Matches Image 1) -->
+  <div class="container-fluid p-0">
+    <div class="row g-0">
+      <div class="col-md-4 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1541829070740-22564c2300f6?auto=format&fit=crop&w=600&q=80');">
+      </div>
+      <div class="col-md-4 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80');">
+      </div>
+      <div class="col-md-4 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80');">
+      </div>
+
+      <div class="col-md-4 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80');">
+      </div>
+      <div class="col-md-4 hero-box-text">
+        <h2 class="text-danger fw-bold mb-1">CIVIL ENGINEERING</h2>
+        <h3 class="fw-bold text-dark">FIELD TRAINING</h3>
+        <hr class="w-75 mx-auto border-dark border-2 my-3">
+        <p class="mb-0 fw-semibold fst-italic text-dark">Only University in Gujarat Offering</p>
+        <h4 class="text-danger fw-bold mt-2">ON-SITE EXPERIENCE<br>AS PART OF THE CURRICULUM</h4>
+      </div>
+      <div class="col-md-4 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80');">
+      </div>
+
+      <!-- Bottom 4 Action Boxes -->
+      <div class="col-md-3 col-6 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80');">
+        <div class="hero-overlay">
+          <div>
+            <small>Program wise</small>
+            <h4 class="fw-bold mb-0"><i class="fas fa-briefcase me-2"></i>Placement</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=400&q=80');">
+        <div class="hero-overlay">
+          <div>
+            <small>360° Virtual</small>
+            <h4 class="fw-bold mb-0"><i class="fas fa-street-view me-2"></i>Campus Tour</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80');">
+        <div class="hero-overlay">
+          <div>
+            <small>Download</small>
+            <h4 class="fw-bold mb-0"><i class="fas fa-file-pdf me-2"></i>e-Brochures</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 hero-box"
+        style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80');">
+        <div class="hero-overlay">
+          <div>
+            <small>For Admission 2026</small>
+            <h4 class="fw-bold mb-0"><i class="fas fa-headset me-2"></i>Inquiry</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Study & Programs (Images 2 & 3) -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="row">
+        <!-- Left: Why Study -->
+        <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0 border-end border-light">
+          <h3 class="section-title"><i class="fas fa-university"></i> Why study at Darshan University?</h3>
+
+          <div class="d-flex mb-4">
+            <div class="why-num">1</div>
+            <div>
+              <h6 class="fw-bold">Dedicated Faculties</h6>
+              <p class="text-muted small mb-0">We proudly hold the record of lowest attrition rate till date to
+                accomplish dedication.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="why-num">2</div>
+            <div>
+              <h6 class="fw-bold">Disciplined Environment</h6>
+              <p class="text-muted small mb-0">Mobile App for parents to track progression. Mobile phones are strictly
+                prohibited within premises.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="why-num">3</div>
+            <div>
+              <h6 class="fw-bold">Skill Development Activities</h6>
+              <p class="text-muted small mb-0">We address the opportunities and challenges to encounter new demands of
+                global technologies.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="why-num">4</div>
+            <div>
+              <h6 class="fw-bold">Industry Interaction & Consultancy Work</h6>
+              <p class="text-muted small mb-0">We possess Civil Consultancy Cell, Energy Management Cell & ASWDC to
+                enhance industrial skills.</p>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="why-num">5</div>
+            <div>
+              <h6 class="fw-bold">Excellent Placement Record</h6>
+              <p class="text-muted small mb-0">We proudly hold a good placement record and assure each eligible student
+                gets an opportunity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Programs -->
+        <div class="col-lg-6 ps-lg-5">
+          <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Programs Offered</h3>
+
+          <div class="d-flex mb-4 p-2 bg-white rounded shadow-sm">
+            <div class="prog-icon bg-warning"><i class="fas fa-cogs"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Darshan Institute of Engineering and Technology</h6>
+              <p class="text-muted small mb-0"><b>B.Tech.</b> (CSE, AI & ML, Civil, EC, Mechanical), <b>M.Tech.</b>,
+                <b>Ph.D.</b>
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-4 p-2 bg-white rounded shadow-sm">
+            <div class="prog-icon bg-primary"><i class="fas fa-laptop-code"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Darshan Institute of Computer Application</h6>
+              <p class="text-muted small mb-0"><b>BCA</b>, <b>MCA</b>, <b>B.Sc. (IT)</b>, <b>B.Sc. Honors (CS)</b></p>
+            </div>
+          </div>
+          <div class="d-flex mb-4 p-2 bg-white rounded shadow-sm">
+            <div class="prog-icon bg-danger"><i class="fas fa-user-tie"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Darshan Institute of Management</h6>
+              <p class="text-muted small mb-0"><b>BBA</b>, <b>BBA (E&FB)</b>, <b>B.Com.</b>, <b>MBA</b>, <b>Ph.D.</b>
+              </p>
+            </div>
+          </div>
+          <div class="d-flex mb-4 p-2 bg-white rounded shadow-sm">
+            <div class="prog-icon bg-success"><i class="fas fa-flask"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Darshan Institute of Science</h6>
+              <p class="text-muted small mb-0"><b>B.Sc.</b> (Microbiology), <b>Ph.D.</b></p>
+            </div>
+          </div>
+
+          <!-- Admission Apply Box -->
+          <div class="border border-danger border-2 rounded p-4 mt-4 bg-white text-center">
+            <h5 class="fw-bold text-dark">Admission 2026</h5>
+            <p class="small text-muted mb-3">Direct Admission for all programs has already started. Kindly apply online.
+            </p>
+            <a href="#" class="btn btn-danger rounded-pill px-5 fw-bold">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Background Banner -->
+  <section class="stats-bg text-center">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <i class="fas fa-book-reader fs-1 mb-2"></i>
+          <h2 class="fw-bold mb-0">10000+</h2>
+          <p class="small">Students<br>Shown Faith in us</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="fas fa-building fs-1 mb-2"></i>
+          <h2 class="fw-bold mb-0">21 Acre</h2>
+          <p class="small">World Class<br>Infrastructure</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="fas fa-industry fs-1 mb-2"></i>
+          <h2 class="fw-bold mb-0">4000+</h2>
+          <p class="small">Consultancy / Research<br>Projects</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <i class="fas fa-graduation-cap fs-1 mb-2"></i>
+          <h2 class="fw-bold mb-0">25+</h2>
+          <p class="small">Courses Offered<br>in UG / PG / Diploma</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Placement Highlights (Image 4) -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3 class="section-title"><i class="fas fa-briefcase"></i> Placement Highlights</h3>
+      </div>
+
+      <div class="row align-items-center">
+        <!-- Overview Table -->
+        <div class="col-lg-4 mb-4">
+          <div class="placement-overview">
+            <div class="placement-header">Placement Overview</div>
+            <table class="table table-borderless fw-semibold small">
+              <thead class="text-danger border-bottom">
+                <tr>
+                  <th>Year</th>
+                  <th class="text-end">2026</th>
+                  <th class="text-end">2025</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-bottom">
+                  <td>Placement</td>
+                  <td class="text-end">96%</td>
+                  <td class="text-end">84%</td>
+                </tr>
+                <tr class="border-bottom">
+                  <td>Highest Package</td>
+                  <td class="text-end">10.00 Lac</td>
+                  <td class="text-end">7.00 Lac</td>
+                </tr>
+                <tr class="border-bottom">
+                  <td>Average Package</td>
+                  <td class="text-end">3.44 Lac</td>
+                  <td class="text-end">3.12 Lac</td>
+                </tr>
+                <tr>
+                  <td>Companies Visited</td>
+                  <td class="text-end">505</td>
+                  <td class="text-end">427</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-center mt-3">
+              <a href="#" class="btn btn-sm btn-outline-secondary rounded-pill px-4">More details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Students Swiper Carousel -->
+        <div class="col-lg-8">
+          <div class="swiper placementSwiper pb-5">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="student-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80"
+                    class="student-img" alt="Student">
+                  <div class="p-3">
+                    <h6 class="fw-bold mb-0">HIMANSHU KASUNDRA</h6>
+                    <div class="ctc-badge">₹ 5.00-6.00 Lakh</div>
+                    <p class="text-muted small mb-2">Placed in</p>
+                    <h6 class="fw-bold text-dark">GNWebsoft</h6>
+                    <small class="text-muted">Rajkot</small>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="student-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+                    class="student-img" alt="Student">
+                  <div class="p-3">
+                    <h6 class="fw-bold mb-0">RUSHI MANANI</h6>
+                    <div class="ctc-badge">₹ 5.64-6.12 Lakh</div>
+                    <p class="text-muted small mb-2">Placed in</p>
+                    <h6 class="fw-bold text-dark">TatvaSoft</h6>
+                    <small class="text-muted">Ahmedabad</small>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="student-card">
+                  <img
+                    src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=300&q=80"
+                    class="student-img" alt="Student">
+                  <div class="p-3">
+                    <h6 class="fw-bold mb-0">MOHIL MANDALIYA</h6>
+                    <div class="ctc-badge">₹ 7.00 Lakh</div>
+                    <p class="text-muted small mb-2">Placed in</p>
+                    <h6 class="fw-bold text-dark">TCS</h6>
+                    <small class="text-muted">Ahmedabad</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leading Recruiters (Automatic Carousel) -->
+  <section class="py-4 border-top">
+    <div class="container text-center">
+      <h4 class="fw-bold mb-4">Leading Recruiters</h4>
+      <div class="swiper recruitersSwiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">TCS</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">TatvaSoft</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">GNWebsoft</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">Corizo</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">Techuz</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">Rapidops</h3>
+          </div>
+          <div class="swiper-slide">
+            <h3 class="fw-bold text-secondary">Weybee</h3>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <a href="#" class="btn-view-more text-decoration-none">View More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events (Carousel) -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3 class="section-title"><i class="far fa-calendar-alt"></i> Upcoming Events</h3>
+      </div>
+
+      <div class="swiper eventsSwiper pb-5">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card event-card border-0">
+              <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=500&q=80"
+                alt="Event">
+              <div class="card-body text-center">
+                <small class="text-muted">22 Aug 2026</small>
+                <h6 class="fw-bold mt-2">Basic Certificate in Rifle Shooting</h6>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card event-card border-0">
+              <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=500&q=80"
+                alt="Event">
+              <div class="card-body text-center">
+                <small class="text-muted">22 Aug 2026</small>
+                <h6 class="fw-bold mt-2">Darshan Policy & Leadership Conclave 2026</h6>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card event-card border-0">
+              <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=500&q=80"
+                alt="Event">
+              <div class="card-body text-center">
+                <small class="text-muted">29 Aug 2026</small>
+                <h6 class="fw-bold mt-2">DARSHAN UNIVERSITY FITTEST ONE</h6>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card event-card border-0">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=500&q=80"
+                alt="Event">
+              <div class="card-body text-center">
+                <small class="text-muted">05 Sep 2026</small>
+                <h6 class="fw-bold mt-2">Tech Hackathon 2026</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="text-center mt-2">
+        <a href="#" class="btn-view-more text-decoration-none">View More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Image 8) -->
+  <footer class="bg-dark text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-danger fw-bold mb-4">WHO WE ARE?</h6>
+          <img src="https://darshan.ac.in/Content/media/DU_Logo.svg" alt="DU Logo" class="bg-white p-2 rounded mb-3"
+            height="45">
+          <p class="small text-muted text-justify"><span class="text-white">Darshan University - having the foundation of its first Institution
+            laid in 2009, and later on, established and consolidated under Gujarat Private Universities Act of 2021.</span></p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-danger fw-bold mb-4">FOR STUDENTS / PARENTS</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Circulars</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Darshan UMS App (Android)</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Darshan UMS App (iPhone)</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">DLib</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">GTU Website</span></a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-danger fw-bold mb-4">FOR OTHERS</h6>
+          <ul class="list-unstyled small">
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Journal :
+                  IJDI-ERET</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Our Publications</span></a>
+            </li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Consultancy - Civil
+                  (CCC)</span></a></li>
+            <li class="mb-2"><a href="#" class="text-muted text-decoration-none"><i
+                  class="fas fa-chevron-right me-2 text-white"></i><span class="text-white">Software Development -
+                  ASWDC</span></a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="text-danger fw-bold mb-4">OUR CONTACTS</h6>
+          <div class="d-flex text-muted small mb-3">
+            <i class="fas fa-map-marker-alt text-danger me-3 mt-1"></i>
+            <span class="text-white">Rajkot - Morbi Highway,<br>Gujarat-363650, INDIA</span>
+          </div>
+          <div class="d-flex text-muted small mb-3">
+            <i class="fas fa-phone text-danger me-3 mt-1"></i>
+            <span class="text-white">(+91) 97277 47310<br>(+91) 97277 47311</span>
+          </div>
+          <div class="d-flex text-muted small">
+            <i class="fas fa-envelope text-danger me-3 mt-1"></i>
+            <span class="text-white">info@darshan.ac.in</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary mt-4 mb-3">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+        <p class="mb-0">2026 © All Rights Reserved by Darshan University. <a href="#"
+            class="text-muted ms-2 text-decoration-none">Terms & Conditions</a> | <a href="#"
+            class="text-muted text-decoration-none">Site Map</a></p>
+        <div class="d-flex gap-3 mt-3 mt-md-0 fs-5">
+          <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <div class="wa-tooltip d-none d-md-block">Connect with a counsellor</div>
+  <a href="https://api.whatsapp.com/send?phone=+917096979900&text=Know%20more" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <script>
+    // Placements Student Slider
+    var placementSwiper = new Swiper(".placementSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
+    });
+
+    // Leading Recruiters Auto Slider
+    var recruitersSwiper = new Swiper(".recruitersSwiper", {
+      slidesPerView: 2,
+      spaceBetween: 30,
+      loop: true,
+      speed: 1500,
+      autoplay: { delay: 0, disableOnInteraction: false }, // Smooth continuous scroll
+      breakpoints: { 768: { slidesPerView: 4 }, 1024: { slidesPerView: 6 } }
+    });
+
+    // Upcoming Events Slider
+    var eventsSwiper = new Swiper(".eventsSwiper", {
+      slidesPerView: 1,
+      spaceBetween: 25,
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
+    });
+  </script>
+</body>
+
+</html>
