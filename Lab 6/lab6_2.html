@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Functions</title>
+</head>
+
+<body>
+    <!-- 2. Demonstrate different array functions like push, pop, shift, unshift, splice, sort etc… (A) -->
+
+    <script>
+        // 1. Push 
+        let a = [10, 20, 30, 40, 50];
+        document.write("<b>---Push (60)---</b><br/>");
+        a.push(60);
+        for (let i = 0; i < a.length; i++) {
+            document.write(a[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 2. Pop 
+        let b = [10, 20, 30, 40, 50];
+        document.write("<b>---Pop---</b><br/>");
+        b.pop();
+        for (let i = 0; i < b.length; i++) {
+            document.write(b[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 3. Shift 
+        let c = [10, 20, 30, 40, 50];
+        document.write("<b>---Shift---</b><br/>");
+        c.shift();
+        for (let i = 0; i < c.length; i++) {
+            document.write(c[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 4. Unshift 
+        let d = [10, 20, 30, 40, 50];
+        document.write("<b>---Unshift (5)---</b><br/>");
+        d.unshift(5);
+        for (let i = 0; i < d.length; i++) {
+            document.write(d[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 5. Splice
+        let e = [10, 20, 30, 40, 50];
+        document.write("<b>---Splice---</b><br/>");
+        e.splice(2, 1, 99);
+        for (let i = 0; i < e.length; i++) {
+            document.write(e[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 6. Slice
+        let f = [10, 20, 30, 40, 50];
+        document.write("<b>---Slice---</b><br/>");
+        let slicedArr = f.slice(1, 4);
+        for (let i = 0; i < slicedArr.length; i++) {
+            document.write(slicedArr[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 7. Sort
+        let g = [50, 10, 40, 20, 30];
+        document.write("<b>---Sort---</b><br/>");
+        g.sort();
+        for (let i = 0; i < g.length; i++) {
+            document.write(g[i] + " ");
+        }
+        document.write("<br/><br/>");
+
+        // 8. Reverse
+        let h = [10, 20, 30, 40, 50];
+        document.write("<b>---Reverse---</b><br/>");
+        h.reverse();
+        for (let i = 0; i < h.length; i++) {
+            document.write(h[i] + " ");
+        }
+    </script>
+</body>
+
+</html>

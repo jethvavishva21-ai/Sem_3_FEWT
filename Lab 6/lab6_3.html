@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 3. WAP to display students stored in array. (A) -->
+     
+    <script>
+        student = [{ name: 'Aryaman', image : 'img.jpg' }, 
+                        { name: 'Rohit',image : 'img1.jpg' }, 
+                        { name: 'Kamyar',image : 'img2.jpg' }]
+
+        for (i = 0; i < student.length; i++) 
+        {
+            document.write("Student Name : " + student[i].name + "<br/>")
+            document.write("<img src = \"" + student[i].image + "\"/>" + "<br/>");
+        }
+        
+    </script>
+</body>
+</html>
