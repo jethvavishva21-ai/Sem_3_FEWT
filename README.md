@@ -40,6 +40,6 @@ To run the React lab programs on your local machine, follow these steps:
    ```bash
    cd "Lab 14 - 28/project1"
  2. Install the required dependencies:
-    npm install
+    `npm install`
  3. Start the local development server:
-    npm run dev 
+   `npm run dev` 
