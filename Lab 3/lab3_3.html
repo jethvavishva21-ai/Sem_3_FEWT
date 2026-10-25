@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        n = parseInt(prompt("Enter Number : "));
+        fact = 1;
+        
+        if(n == 1)
+        {
+            document.write("Factorial is zero");
+        }
+
+        else
+        {
+            for (i = 1; i <= n; i++) 
+            {
+                fact = fact * i;
+            }
+        }
+
+
+        document.write("Factorial = "+fact);
+
+    </script>
+</body>
+</html>
